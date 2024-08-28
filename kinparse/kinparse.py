@@ -139,7 +139,7 @@ def _parse_netlist_kicad(text):
     pin_type = _paren_clause('pintype', anystring('type'))
     pin_func = _paren_clause('pinfunction', anystring('function'))
     node = _paren_clause('node', ref & part_pin & Optional(pin_func) & Optional(pin_type))
-    nodes = Group(ZeroOrMore(node))('nodes')
+    nodes = Group(ZeroOrMore(node))
     net = _paren_clause('net', Group(code & name & nodes))
     nets = _paren_clause('nets', ZeroOrMore(net))('nets')
 
