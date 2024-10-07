@@ -147,7 +147,7 @@ def _parse_netlist_kicad(text):
     version = _paren_clause('version', word('version'))
     end_of_file = ZeroOrMore(White()) + stringEnd
     parser = _paren_clause('export', version +
-                (design & components & Optional(libparts) & Optional(libraries) & nets
+                (design & Optional(components) & Optional(libparts) & Optional(libraries) & Optional(nets)
                 )) + end_of_file.suppress()
 
     return parser.parseString(text)
