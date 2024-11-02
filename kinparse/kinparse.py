@@ -172,7 +172,7 @@ def parse_netlist(src, tool='kicad'):
         text = src.read()
     except Exception:
         try:
-            text = open(src,'r',encoding='latin_1').read()
+            text = open(src,'r',encoding='utf-8').read()
         except Exception:
             text = src
 
